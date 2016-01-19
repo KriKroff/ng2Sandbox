@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <base ref="/">
     <meta charset="UTF-8">
     <title>Angular2 playground</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
 <body>
-    <hello-app>Loading...</hello-app>
+    <reservation-app>Loading...</reservation-app>
 </body>
 
 <!-- ES6-related imports -->
@@ -15,13 +17,18 @@
 <script src="/node_modules/systemjs/dist/system.js"></script>
 <script>
     //configure system loader
-    System.config({defaultJSExtensions: true});
+    System.config({
+        defaultJSExtensions: true,
+        map: { lodash: 'node_modules/lodash/lodash.js' },
+    });
 </script>
 <script src="/node_modules/rxjs/bundles/Rx.js"></script>
-<script src="/node_modules/angular2/bundles/angular2.min.js"></script>
+<script src="/node_modules/angular2/bundles/angular2.dev.js"></script>
+<script src="/node_modules/angular2/bundles/router.dev.js"></script>
+
 <script>
     //bootstrap the Angular2 application
-    System.import('dist/hello').catch(console.log.bind(console));
+    System.import('dist/app').catch(console.log.bind(console));
 </script>
 
 </html>
